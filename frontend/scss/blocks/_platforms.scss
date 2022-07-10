@@ -1,0 +1,25 @@
+@use "../utils/mixins"as m;
+@use "../utils/variables"as v;
+
+.platforms {
+    scroll-behavior: smooth;
+
+}
+
+.platforms__wrapper {
+    @include m.wrapper;
+    margin: 20px auto;
+    padding: 40px 0;
+}
+
+.platforms__list{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: space-evenly;
+}
+
+.platforms__item {
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
