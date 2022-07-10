@@ -1,0 +1,11 @@
+[2022-07-04 22:07:23 +0300] [15096] [INFO] Starting gunicorn 20.1.0
+[2022-07-04 22:07:23 +0300] [15096] [INFO] Listening at: http://127.0.0.1:8000 (15096)
+[2022-07-04 22:07:23 +0300] [15096] [INFO] Using worker: sync
+[2022-07-04 22:07:23 +0300] [15102] [INFO] Booting worker with pid: 15102
+[2022-07-04 22:07:23 +0300] [15104] [INFO] Booting worker with pid: 15104
+[2022-07-04 22:07:23 +0300] [15105] [INFO] Booting worker with pid: 15105
+[2022-07-04 22:07:52 +0300] [15096] [INFO] Handling signal: int
+[2022-07-04 22:07:52 +0300] [15104] [INFO] Worker exiting (pid: 15104)
+[2022-07-04 22:07:52 +0300] [15102] [INFO] Worker exiting (pid: 15102)
+[2022-07-04 22:07:52 +0300] [15105] [INFO] Worker exiting (pid: 15105)
+[2022-07-04 22:07:52 +0300] [15096] [INFO] Shutting down: Master
