@@ -1,0 +1,99 @@
+@use "../utils/mixins" as m;
+@use "../utils/variables" as v;
+
+.rating {
+    background-image: url(../../images/bg-rating.png);
+    background-size: cover;
+}
+
+.rating__wrapper {
+    position: relative;
+    @include m.wrapper;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0;
+}
+
+.rating__title {
+    font-family: 'Noto Serif';
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 5.6rem;
+    max-width: 640px;
+    margin: 40px auto 60px;
+}
+
+.rating__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.rating__item {
+    width: 100%;
+    display: flex;
+    backdrop-filter: blur(22px);
+    margin-bottom: 12px;
+    align-items: center;
+    border-radius: 30px 8px 8px 30px;
+    &_me {
+        border: 1px solid v.$liblue;
+    }
+}
+
+.rating__info {
+    text-align: center;
+    font-family: 'Noto Serif';
+    padding: 12px;
+    border-radius: 0 0 8px 8px;
+    display: grid;
+    font-size: 1.4rem;
+    line-height: normal;
+    grid-template-columns: 280px 100px 110px 100px;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    @media screen and (max-width: 768px){
+        grid-template-columns: 100px 60px 60px 60px; 
+        font-size: 1.05rem;  
+    }
+
+}
+
+.rating__image {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 200px;
+}
+
+.rating__name {
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: normal;
+    text-align: left;
+    @media screen and (max-width: 768px){
+        font-size: 1.1rem;  
+    }
+}
+
+.rating__coins {
+    display: flex;    
+    align-items: center;
+    &:before{
+        margin-right: 2px;
+        content: url(../../images/coin-icon.svg);
+    }
+}
+
+.rating__scores {
+    display: flex;    
+    align-items: center;
+    &:before{
+        margin-right: 2px;
+        content: url(../../images/exp-icons.svg);
+    }
+}
