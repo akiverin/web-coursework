@@ -1,0 +1,104 @@
+@use "../utils/mixins" as m;
+@use "../utils/variables" as v;
+
+.products {
+    background-image: url(../../images/bg-shop.png);
+    background-size: cover;
+}
+
+.products__wrapper {
+    position: relative;
+    @include m.wrapper;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0;
+}
+
+.products__title {
+    font-family: 'Noto Serif';
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 5.6rem;
+    max-width: 800px;
+    margin: 40px auto 60px;
+}
+
+.products__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.products__item {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    backdrop-filter: blur(22px);
+    align-items: center;
+}
+
+.products__info {
+    padding: 8px;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.products__image {
+    width: 130px;
+    height: 130px;
+    margin-top: 25px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.products__name {
+    font-family: 'Noto Serif';
+    font-weight: 600;
+    max-width: 190px;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+}
+
+.products__description {
+    margin-top: 6px;
+    text-align: justify;
+    font-size: 1.05rem;
+    line-height: 1.3rem;
+    -webkit-line-clamp: 3; /* Число отображаемых строк */
+    display: -webkit-box; /* Включаем флексбоксы */
+    -webkit-box-orient: vertical; /* Вертикальная ориентация */
+    overflow: hidden; /* Обрезаем всё за пределами блока */
+    &:after{
+        content: '...';
+    }
+}
+
+.products__other {
+    display: flex;
+    font-weight: 500;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.products__coins {
+    display: flex;    
+    align-items: center;
+    font-size: 1.4rem;
+    color: v.$liyellow;
+    text-shadow: 1px 1px 1px v.$mycard;
+    &:before{
+        margin-right: 3px;
+        margin-top: 3px;
+        content: url(../../images/coin-icon.svg);
+    }
+}
