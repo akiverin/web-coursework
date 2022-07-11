@@ -1,11 +1,17 @@
 <template>
-  <main id="app">
+  <body id="app">
+    <Header :me="this.me"/>
     <input type="text" v-model="token" class="visually-hidden">
+    <input type="text" v-model="me" class="visually-hidden">
     <router-view @get-token="getToken" @post-token="postToken" :me="this.me"></router-view>
-  </main>
+    <Footer :me="this.me"/>
+  </body>
 </template>
 
 <script>
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -16,13 +22,19 @@ export default {
   data(){
     return {
       token: '',
-      me: {}
+      me: 0
     }
+  },
+  components: {
+    Header,
+    Footer
   },
   methods: {
     getToken (token){
       this.token = token;
-      this.getMe();
+      if (this.token != ""){
+        this.getMe()
+    }
     },
     postToken (){
       return this.token;
@@ -48,7 +60,10 @@ export default {
     if (localStorage.token) {
       this.token = localStorage.token;
     }
-    this.getMe()
+     
+    if (this.token != ""){
+        this.getMe()
+    }
   },
   watch: {
     token(newToken) {

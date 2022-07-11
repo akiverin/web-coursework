@@ -36,10 +36,13 @@
         <p class="authorization__error" v-if="this.error">Не правильно введен адрес электронной почты или пароль!</p>
       </div>
     </section>
+    <Loader/>
   </div>
 </template>
 
 <script>
+import Loader from '@/components/Loader'
+
 import Vue from "vue";
 import axios from "axios";
 import router from '@/routes'
@@ -58,6 +61,7 @@ export default {
       error: 0
     };
   },
+  components: {Loader},
   methods: {
     LoginUser: function () {
       let api = "http://127.0.0.1:8000/api/users/login/";

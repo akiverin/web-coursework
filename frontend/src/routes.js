@@ -1,13 +1,13 @@
 import VueRouter from 'vue-router'
 
-import Home from '@/components/Home'
-import Levels from '@/components/Levels'
-import Registration from '@/components/Registration'
-import Shop from '@/components/Shop'
-import Rating from '@/components/Rating'
-import Enemies from '@/components/Enemies'
-import Authorization from '@/components/Authorization'
-// import NotFound from '../pages/404'
+import Home from '@/pages/Home'
+import Levels from '@/pages/Levels'
+import Registration from '@/pages/Registration'
+import Shop from '@/pages/Shop'
+import Rating from '@/pages/Rating'
+import NotFound from '@/pages/NotFound'
+import Enemies from '@/pages/Enemies'
+import Authorization from '@/pages/Authorization'
 
 export default new VueRouter({
   mode: 'history',
@@ -15,7 +15,7 @@ export default new VueRouter({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
     },
     {
       path: '/rating',
@@ -46,34 +46,11 @@ export default new VueRouter({
       path: '/levels',
       name: 'Levels',
       component: Levels,
-      // children: [
-      //   {
-      //     path: '',
-      //     name: 'films',
-      //     component: AllFilmsPage
-      //   },
-      //   {
-      //     path: ':id',
-      //     name: 'filmPage',
-      //     component: FilmPage,
-      //     beforeEnter: (to, from, next) => {
-      //       if(localStorage.getItem('auth')) {
-      //         next()
-      //       } else {
-      //         next({ name: 'films' })
-      //       }
-      //     }
-      //   },
-      //   {
-      //     path: '*/*',
-      //     redirect: { name: 'films' }
-      //   },
-      // ]
     },
-    // {
-    //   path: '*',
-    //   name: 'notFound',
-    //   component: NotFound
-    // },
+    {
+      path: '*',
+      name: 'notFound',
+      component: NotFound
+    },
   ]
 })

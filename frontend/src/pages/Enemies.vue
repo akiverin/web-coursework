@@ -73,7 +73,7 @@ export default {
     showEnemy(enemy,count){
         let enemyLevels = enemy.levels_data;
         for (let i = 0; i < enemyLevels.length; i++){
-            if (enemyLevels[i].id < count){
+            if (enemyLevels[i].id <= count){
                 return true
                 } else {
                     return false

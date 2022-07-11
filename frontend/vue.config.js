@@ -1,7 +1,10 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
-  transpileDependencies: true
-})
+  transpileDependencies: true,
+  }
+)
+  
+  
 
 // const BundleTracker = require('webpack-bundle-tracker');
 
