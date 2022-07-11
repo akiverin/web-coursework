@@ -1,0 +1,83 @@
+@use "../utils/mixins" as m;
+@use "../utils/variables" as v;
+
+.header {
+    padding: 0 40px;
+    position: absolute;
+    top:20px;
+    z-index: 2;
+    left: 0;
+    right: 0;
+}
+
+.header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigate__list{
+    display: flex;
+    list-style: none;
+    @media screen and (max-width: 900px) {
+        display: none;
+        flex-direction: column;
+        align-items: flex-end;
+        position: absolute;
+        top: 50px;
+        right: 20px;
+    }
+}
+
+.navigate__item {
+    padding-right: 16px;
+}
+
+.navigate__link {
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: v.$mywhite;
+    text-decoration: none;
+    padding: 1px 4px;
+    border: 1px solid transparent;
+    &:hover {
+        color: v.$liliblue;
+    }
+    &:focus {
+        outline: none;
+        border-radius: 4px;
+        border: 1px solid v.$liblue;
+        color: v.$liblue;
+    }
+}
+
+.header__menu {
+    display: none;
+    border:none;
+    background: none;
+    cursor: pointer;
+    @media screen and (max-width: 900px) {
+        display: block;
+    }
+}
+
+.header__close {
+    display: none;
+    border:none;
+    background: none;
+    cursor: pointer;
+
+}
+
+.header__menu-icon {
+    height: 42px;
+    width: 42px;
+    fill: v.$mywhite;
+}
+
+.header__close-icon {
+    height: 42px;
+    width: 42px;
+    padding: 4px;
+    fill: v.$mywhite;
+}

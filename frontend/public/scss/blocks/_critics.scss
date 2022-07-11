@@ -1,0 +1,98 @@
+@use "../utils/mixins"as m;
+@use "../utils/variables"as v;
+
+.critics__wrapper {
+    @include m.wrapper;
+    margin: 80px auto;
+}
+
+.critics__subtitle {
+    text-align: center;
+    text-transform: uppercase;
+    color: v.$myorange;
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:after {
+        padding: 0 4px;
+        height: 22px;
+        content: url(../../images/line-orange.svg); 
+    }
+    &:before { 
+        padding: 0 4px;
+        height: 22px;
+        content: url(../../images/line-orange.svg); 
+    }
+}
+
+.critics__title {
+    text-align: center;
+    font-family: 'Noto Serif';
+    font-weight: 700;
+    font-size: 3.2rem;
+    line-height: 4.8rem;
+    max-width: 340px;
+    margin: 16px auto 54px auto;
+}
+
+.critics__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+.critics__item {
+    display: flex;
+    position: relative;
+    background-color: v.$dkwindow;
+    padding: 20px 180px 16px 18px;
+    border-radius: 8px;
+    margin-bottom: 50px;
+}
+
+.critics__image {
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    width: 160px;
+    object-fit: cover;
+    @media screen and (max-width: 530px){
+        width: 160px;
+    }
+}
+
+.critics__star-icon {
+    height: 16px;
+    width: 16px;
+}
+
+.critics__info {
+    z-index: 2;
+    max-width: 270px;
+    font-family: 'Noto Serif';
+}
+
+.critics__text {
+    font-weight: 300;
+    font-size: 1.4rem;
+    line-height: normal;
+    color: v.$liwhite;
+    margin: 6px 0 12px 0;
+}
+
+.critics__name {
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+}
+
+.critics__specialization {
+    font-weight: 500;
+    font-size: 1rem;
+    color: v.$liblue;
+}
