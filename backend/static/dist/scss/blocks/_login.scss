@@ -1,0 +1,61 @@
+@use "../utils/mixins" as m;
+@use "../utils/variables" as v;
+
+.authorization {
+    background-image: url(../../images/bg-enemies.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+.authorization__wrapper {
+    position: relative;
+    @include m.wrapper;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0;
+}
+
+.authorization__form {
+    display: flex;
+    flex-direction: column;
+    max-width: 460px;
+    min-width: 320px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 8px;
+    border: 1px solid v.$ligray;
+    padding: 2%;
+
+}
+
+.form__box {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    color: v.$mywhite;
+    font-size: 1.2rem;
+}
+
+.form__input {
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    display: block;
+    margin: 9px auto;
+    color: v.$mywhite;
+    padding: 12px 10px;
+    border-radius: 6px;
+    border: none;
+    background: rgba(3,3,3,.3);
+    transition: all 0.2s ease-in-out;
+    &:focus{
+        outline: none;
+        box-shadow: 3px 3px 10px rgba(21, 21, 21, 0.391);
+        background: rgba(3,3,3,.4);
+      }
+}

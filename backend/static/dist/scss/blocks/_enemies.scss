@@ -1,0 +1,130 @@
+@use "../utils/mixins" as m;
+@use "../utils/variables" as v;
+
+.enemies {
+    background-image: url(../../images/bg-enemies.png);
+    background-size: cover;
+}
+
+.enemies__wrapper {
+    position: relative;
+    @include m.wrapper;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0;
+}
+
+.enemies__title {
+    font-family: 'Noto Serif';
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 5.6rem;
+    max-width: 800px;
+    margin: 40px auto 60px;
+}
+
+.enemies__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.enemies__item {
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(22px);
+    border-radius: 280px 280px 8px 8px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.enemies__info {
+    padding: 12px;
+    min-height: 140px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.enemies__image {
+    width: 100%;
+    height: 260px;
+    border-radius: 280px;
+    object-fit: cover;
+    &_easy {
+        border: 2px solid v.$mygreen;
+    }
+    &_norm {
+        border: 2px solid v.$myblue;
+    }
+    &_hard {
+        border: 2px solid v.$mypink;
+    }
+}
+
+.enemies__name {
+    font-family: 'Noto Serif';
+    font-weight: 600;
+    max-width: 190px;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+}
+
+.enemies__description {
+    margin-top: 6px;
+    text-align: justify;
+    font-size: 1.05rem;
+    line-height: 1.3rem;
+    -webkit-line-clamp: 4; /* Число отображаемых строк */
+    display: -webkit-box; /* Включаем флексбоксы */
+    -webkit-box-orient: vertical; /* Вертикальная ориентация */
+    overflow: hidden; /* Обрезаем всё за пределами блока */
+    &:after{
+        content: '...';
+    }
+}
+
+.enemies__other {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-family: 'Noto Serif';
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.enemies__coin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    &:before{
+        content: url(../../images/coin-icon.svg);
+    }
+}
+
+.enemies__heart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    &:before{
+        content: url(../../images/heart-icon.svg);
+    }
+}
+
+.enemies__power {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    &:before{
+        content: url(../../images/fist-icon.svg);
+    }
+}

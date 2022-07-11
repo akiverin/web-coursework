@@ -1,0 +1,97 @@
+@use "../utils/mixins" as m;
+@use "../utils/variables" as v;
+
+.hero {
+    background-image: url(../../images/bg.png);
+    background-size: cover;
+    box-shadow: inset 0px -20px 30px #171720;
+}
+
+.hero__wrapper {
+    position: relative;
+    @include m.wrapper;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0;
+
+}
+
+.hero__subtitle {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &:after {
+        padding: 0 4px;
+        height: 22px;
+        content: url(../../images/line.svg); 
+    }
+    &:before { 
+        padding: 0 4px;
+        height: 22px;
+        content: url(../../images/line.svg); 
+    }
+}
+
+.hero__title {
+    font-family: 'Noto Serif';
+    font-weight: 700;
+    font-size: 4.6rem;
+    line-height: 6.2rem;
+    max-width: 800px;
+    margin: 16px auto 28px;
+}
+
+.hero__link {
+    font-weight: 500;
+    width: 200px;
+    margin: 0 auto;
+    color: v.$mywhite;
+    text-decoration: none;
+    padding: 14px 28px;
+    background: v.$gamegradient;
+    border-radius: 3rem;
+    font-size: 1.8rem;
+    transition: all 0.3s;
+    &:hover{
+        outline: 1.8px solid v.$mywhite;
+    }
+}
+
+.hero__button {
+    position: absolute;
+    width: 120px;
+    border-radius: 8px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: v.$mywhite;
+    text-decoration: none;
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    &:after { 
+        content: url(/images/arow-down.svg); 
+    }
+}
+
+@media screen and (max-width: 758px) {
+    .hero__title {
+        font-size: 3rem;
+        line-height: normal;
+    }
+}
