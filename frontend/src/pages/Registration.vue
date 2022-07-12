@@ -77,9 +77,6 @@ Vue.use(VueAxios, axios);
 
 export default {
   name: "RegistrationPage",
-  props: {
-    msg: String,
-  },
   data() {
     return {
       email: "",
@@ -91,7 +88,7 @@ export default {
   },
   methods: {
     RegistrationUser: function () {
-      let api = "http://127.0.0.1:8000/api/users/register/";
+      let api = "/api/users/register/";
       axios({
         // headers: {Authorization: `Bearer ${this.token}`},
         method: "post",
@@ -101,8 +98,7 @@ export default {
           email: this.email,
           password: this.password,
         },
-      }).then((response) => {
-        console.log(response.data)
+      }).then(() => {
         this.flag = 1
         router.push({path:'/login'})
       }).catch((error) => {

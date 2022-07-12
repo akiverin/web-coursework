@@ -20,7 +20,7 @@ Vue.use(VueAxios, axios);
 export default {
   name: "NotFoundPage",
   props: {
-    me: Object,
+    me: {},
   },
   data() {
     return {

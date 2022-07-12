@@ -3,12 +3,13 @@
     <section class="enemies">
       <div class="enemies__wrapper">
         <h1 class="enemies__title">Вражеские воины и монстры</h1>
-        <h2 class="enemies__subtitle" v-if="me==0">Чтобы видеть коллекцию поверженых вами врагов, нужно пройти <a href="/login" class="enemies__link">авторизацию</a> на сайте.</h2>
+        <h2 class="enemies__subtitle" v-if="this.token.length<2">Чтобы видеть коллекцию поверженых вами врагов, нужно пройти <a href="#/login" class="enemies__link">авторизацию</a> на сайте.</h2>
         <ul class="enemies__list">
           <li v-for="enemy in enemies" :key="enemy.id" class="enemies__item">
+          <div class="enemy__avatar">
             <img
               v-if="showEnemy(enemy,me.levels)"
-              src="../../public/images/skyland01.jpeg"
+              :src="enemy.image"
               alt="Cover for location"
               class="enemies__image"
               v-bind:class="{
@@ -17,7 +18,7 @@
                 enemies__image_hard: enemy.difficulty == 'hard',
               }"
             />
-            <!-- <img :src="enemy.image" alt="Cover for location" class="enemies__image"> -->
+          </div>
             <div class="enemies__info" v-if="showEnemy(enemy,me.levels)">
               <h2 class="enemies__name">{{ enemy.name }}</h2>
               <p class="enemies__description">
@@ -55,7 +56,8 @@ Vue.use(VueAxios, axios);
 export default {
   name: "EnemiesPage",
    props: {
-    me: Object
+    me: {},
+    token: String,    
   },
   data() {
     return {
@@ -64,9 +66,8 @@ export default {
   },
   methods: {
     GetEnemies: function () {
-      let api = "http://127.0.0.1:8000/api/enemies/";
+      let api = "/api/enemies/";
       Vue.axios.get(api).then((response) => {
-        console.log(response.data);
         this.enemies = response.data;
       });
     },

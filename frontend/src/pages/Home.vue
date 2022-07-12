@@ -3,16 +3,16 @@
         <section class="hero">
             <div class="hero__wrapper">
                 <p class="hero__subtitle">
-                    Приветствуем Вас <span class="hero__username" v-if="this.me">, {{me.username}}</span>
+                    Приветствуем Вас <span class="hero__username" v-if="this.token">, {{ me.username }}</span>
                 </p>
                 <h1 class="hero__title">
                     Отправляйтесь на встречу к 
 магическим злоключениям
                 </h1>
-                <a v-if="me==0" href="/login" class="hero__link">
+                <a v-if="this.token.length<1" href="#/login" class="hero__link">
                     Начать игру
                 </a>
-                <a v-if="me!=0" @click="exitUser" href="/login" class="hero__link">
+                <a v-if="this.token" @click="exitUser" href="#/" class="hero__link">
                     Выйти
                 </a>
                 <a href="#platforms" class="hero__button">
@@ -550,7 +550,7 @@
                 <div class="locations__info">
                     <p class="locations__subtitle">Уникальные локации</p>
                     <h2 class="locations__title">Путешествуйте по красочному миру магов и чудовиш</h2>  
-                    <a href="/login" class="locations__link">
+                    <a href="#/login" class="locations__link">
                         Войти в игру
                     </a>  
                 </div>
@@ -568,14 +568,16 @@ Vue.use(VueAxios, axios);
 
 export default {
   name: 'HomePage',
- props: {
-    me: Object
+  props: {
+    me: {},
+    token: String,
   },
   methods: {
     exitUser(){
-        localStorage.clear()
+        localStorage.clear();
+        window.location.reload();
     },
-  }
+  },
 }
 </script>
 

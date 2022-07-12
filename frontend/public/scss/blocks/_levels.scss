@@ -21,9 +21,14 @@
     font-family: 'Noto Serif';
     font-weight: 700;
     font-size: 4rem;
-    line-height: 5.6rem;
+    line-height: normal;
     max-width: 800px;
     margin: 40px auto 10px;
+    @media screen and (max-width: 680px) {
+        font-size: 2.8rem;
+        max-width: 480px;
+        margin: 30px auto 0;
+    }
 }
 
 .levels__subtitle {
@@ -69,15 +74,18 @@
     }
 }
 
+.levels__avatar {
+    height: 200px;
+}
+
 .levels__info {
     padding: 12px;
     backdrop-filter: blur(22px);
     border-radius: 0 0 8px 8px;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    height: 100%;
 }
 
 .levels__image {
@@ -136,7 +144,8 @@
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(22px);
-    height: 340px;
+    height: 100%;
+    min-height: 340px;
     border-radius: 8px;
 }
 

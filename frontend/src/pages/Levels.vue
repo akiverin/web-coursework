@@ -3,11 +3,11 @@
     <section class="levels">
       <div class="levels__wrapper">
         <h1 class="levels__title">Игровые уровни и локации</h1>
-        <h2 class="levels__subtitle" v-if="me == 0">
+        <h2 class="levels__subtitle" v-if="this.token.length<2">
           Чтобы видеть прогресс пройденных уровней, нужно пройти
-          <a href="/login" class="enemies__link">авторизацию</a> на сайте.
+          <a href="#/login" class="enemies__link">авторизацию</a> на сайте.
         </h2>
-        <ul class="levels__list" v-if="me!=0">
+        <ul class="levels__list" v-if="this.token">
           <li
             v-for="level in levels"
             :key="level.id"
@@ -18,13 +18,13 @@
               levels__item_hard: level.difficulty == 'hard',
             }"
           >
+          <div class="levels__avatar" v-if="level.id < me.levels + 2">
             <img
-              v-if="level.id < me.levels + 2"
-              src="../../public/images/skyland01.jpeg"
+              :src="level.image"
               alt="Cover for location"
               class="levels__image"
             />
-            <!-- <img :src="level.image" alt="Cover for location" class="levels__image"> -->
+          </div>
             <div v-if="level.id < me.levels + 2" class="levels__info">
               <h2 class="levels__name">{{ level.name }}</h2>
               <p class="levels__description">
@@ -50,15 +50,14 @@
 </template>
 
 <script>
-import Vue from "vue";
-import axios from "axios";
-import VueAxios from "vue-axios";
-Vue.use(VueAxios, axios);
+import Vue from 'vue'
+import axios from 'axios'
 
 export default {
   name: "LevelsPage",
   props: {
-    me: Object,
+    me: {},
+    token: String,
   },
   data() {
     return {
@@ -68,7 +67,7 @@ export default {
   },
   methods: {
     GetLevels: function () {
-      let api = "http://127.0.0.1:8000/api/levels/";
+      let api = "/api/levels/";
       // Vue.axios.get(api)
       axios({
         // headers: {Authorization: `Bearer ${this.$emit('post-token')}`},
@@ -79,9 +78,8 @@ export default {
       });
     },
     GetUsers: function () {
-        let api = 'http://127.0.0.1:8000/api/users/';
+        let api = '/api/users/';
         Vue.axios.get(api).then((response) => {
-            console.log(response.data);
             this.users = response.data;
         });
     },

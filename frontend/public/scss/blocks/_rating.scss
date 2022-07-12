@@ -20,9 +20,14 @@
     font-family: 'Noto Serif';
     font-weight: 700;
     font-size: 4rem;
-    line-height: 5.6rem;
+    line-height: normal;
     max-width: 640px;
     margin: 40px auto 60px;
+    @media screen and (max-width: 680px) {
+        font-size: 2.8rem;
+        max-width: 480px;
+        margin: 30px auto 20px;
+    }
 }
 
 .rating__list {
@@ -56,9 +61,14 @@
     align-items: center;
     width: 100%;
     justify-content: space-between;
-    @media screen and (max-width: 768px){
-        grid-template-columns: 100px 60px 60px 60px; 
-        font-size: 1.05rem;  
+    @media screen and (max-width: 580px){
+        grid-template-columns: 2fr 1.4fr; 
+        font-size: 1.2rem;
+        text-align: left;
+    }
+    @media screen and (min-width: 580px) and (max-width: 790px){
+        grid-template-columns: 2.2fr 1fr 1.5fr 1fr; 
+        font-size: 1.15rem;  
     }
 
 }
@@ -72,11 +82,11 @@
 
 .rating__name {
     font-weight: 600;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     line-height: normal;
     text-align: left;
     @media screen and (max-width: 768px){
-        font-size: 1.1rem;  
+        font-size: 1.4rem;  
     }
 }
 

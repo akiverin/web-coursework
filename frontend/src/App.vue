@@ -1,10 +1,10 @@
 <template>
   <body id="app">
-    <Header :me="this.me"/>
+    <Header :me="this.me" :token="this.token"/>
     <input type="text" v-model="token" class="visually-hidden">
     <input type="text" v-model="me" class="visually-hidden">
-    <router-view @get-token="getToken" @post-token="postToken" :me="this.me"></router-view>
-    <Footer :me="this.me"/>
+    <router-view @get-token="getToken" @post-token="postToken" :me="this.me" :token="this.token"></router-view>
+    <Footer :me="this.me" :token="this.token"/>
   </body>
 </template>
 
@@ -22,7 +22,7 @@ export default {
   data(){
     return {
       token: '',
-      me: 0
+      me: {},
     }
   },
   components: {
@@ -34,25 +34,23 @@ export default {
       this.token = token;
       if (this.token != ""){
         this.getMe()
-    }
+      }
     },
     postToken (){
       return this.token;
     },
     getMe(){
-        let api = 'http://127.0.0.1:8000/api/users/me/';
+        let api = '/api/users/me/';
         axios ({
         headers: {Authorization: `Bearer ${this.token}`},
         method: 'get',
         url: api,
       })
         .then((response) => {
-            console.log(response.data);
-            this.me = response.data;
+            if (response.data.is_activ == true){this.me = response.data;}
         })
         .catch(()=>{
-          console.log(`Bearer ${this.token}`);
-          this.me = 0;
+          this.me = {};
         });
     }
   },
@@ -67,8 +65,11 @@ export default {
   },
   watch: {
     token(newToken) {
-      console.log(newToken)
-      if (newToken!=""){localStorage.token = newToken}
+      console.log(5)
+      if (newToken!=""){
+        localStorage.token = newToken;
+        this.getMe()
+        }
     }
   },
 }

@@ -24,7 +24,6 @@
     font-weight: 600;
     font-size: 1.4rem;
     margin: 0 auto;
-    padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -38,6 +37,9 @@
         height: 22px;
         content: url(../../images/line.svg); 
     }
+    @media screen and (max-width: 680px) {
+        font-size: 1.3rem;
+    }
 }
 
 .hero__username {
@@ -45,6 +47,9 @@
     font-size: 1.6rem;
     color: v.$mygreen;
     padding-bottom: 1.4px;
+    @media screen and (max-width: 680px) {
+        font-size: 1.5rem;
+    }
     
 }
 

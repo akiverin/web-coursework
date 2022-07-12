@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "rsync —-archive —-compress —-delete —-info=progress2 dist/ std@std-1725.ist.mospolytech.ru:~/coursework/frontend"
+    "deploy": "rsync --archive --compress --delete --info=progress2 dist/ std@std-1725.ist.mospolytech.ru:~/coursework/frontend"
   },
   "dependencies": {
     "axios": "^0.27.2",

@@ -10,7 +10,7 @@ import Enemies from '@/pages/Enemies'
 import Authorization from '@/pages/Authorization'
 
 export default new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/',
