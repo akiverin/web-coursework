@@ -12,28 +12,27 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+from .juzmin import JAZZMIN_SETTINGS
 
 import pymysql
-import environ
 import os
 import gunicorn
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 pymysql.install_as_MySQLdb()
-env = environ.Env(DEBUG=(bool,False))
-environ.Env.read_env(BASE_DIR / '.env')
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY="django-insecure-sy&sx$*h&r)s$!ao2@jfy!376)_*+7s^5-k&*h^j!wbo4gz&k@"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -41,6 +40,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -176,3 +176,5 @@ CORS_ALLOW_CREDENTIALS = True
 #     'IGNORE': [r'.+\.hot-update.js', r'.+\.map'],
 #   }
 # }
+
+JAZZMIN_SETTINGS = JAZZMIN_SETTINGS

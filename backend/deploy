@@ -1,0 +1,2 @@
+#!/bin/sh
+rsync --archive --compress --delete --info=progress2 ../backend/ std@std-1725.ist.mospolytech.ru:~/coursework/backend
