@@ -3,7 +3,7 @@
     <section class="authorization">
       <div class="authorization__wrapper">
         <h1 class="authorization__title">Авторизация</h1>
-        <p class="authorization__info">Если у вас нет игрового аккаунта, то перейдите на <a class="authorization__link" href="#/register">страницу регистрации</a></p>
+        <p class="authorization__info">Если у вас нет игрового аккаунта, то перейдите на <router-link :to="'/register'" class="authorization__link">страницу регистрации</router-link>.</p>
         <form class="authorization__form form" @submit.prevent="LoginUser">
           <div class="form__box">
             <label class="form__label" for="email"
@@ -36,13 +36,10 @@
         <p class="authorization__error" v-if="this.error">Не правильно введен адрес электронной почты или пароль!</p>
       </div>
     </section>
-    <Loader/>
   </div>
 </template>
 
 <script>
-import Loader from '@/components/Loader'
-
 import Vue from "vue";
 import axios from "axios";
 import router from '@/routes'
@@ -58,7 +55,6 @@ export default {
       error: 0
     };
   },
-  components: {Loader},
   methods: {
     LoginUser: function () {
       let api = "/api/users/login/";

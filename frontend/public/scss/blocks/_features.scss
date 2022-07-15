@@ -36,6 +36,9 @@
     line-height: 4.8rem;
     max-width: 600px;
     margin: 16px auto 54px auto;
+    @media screen and (max-width: 680px) {
+        font-size: 3.2rem;
+    }
 }
 
 .features__list {

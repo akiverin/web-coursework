@@ -5,7 +5,7 @@
         <h1 class="levels__title">Игровые уровни и локации</h1>
         <h2 class="levels__subtitle" v-if="this.token.length<2">
           Чтобы видеть прогресс пройденных уровней, нужно пройти
-          <a href="#/login" class="enemies__link">авторизацию</a> на сайте.
+          <router-link :to="'/login'" class="levels__link">авторизацию</router-link> на сайте.
         </h2>
         <ul class="levels__list" v-if="this.token">
           <li

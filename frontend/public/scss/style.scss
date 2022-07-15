@@ -1,18 +1,17 @@
-@use "blocks/_header.scss";
-@use "blocks/_footer.scss";
+@use "components/_header.scss";
+@use "components/_footer.scss";
 @use "blocks/_hero.scss";
 @use "blocks/_platforms.scss";
 @use "blocks/_features.scss";
 @use "blocks/_advantages.scss";
 @use "blocks/_critics.scss";
 @use "blocks/_locations.scss";
-@use "blocks/_levels.scss";
-@use "blocks/_enemies.scss";
-@use "blocks/_shop.scss";
-@use "blocks/_rating.scss";
-@use "blocks/_login.scss";
-@use "blocks/_loader.scss";
-
+@use "pages/_levels.scss";
+@use "pages/_enemies.scss";
+@use "pages/_shop.scss";
+@use "pages/_rating.scss";
+@use "pages/_login.scss";
+@use "pages/_profile.scss";
 
 @use "utils/_fonts.scss";
 @use "utils/_general.scss";

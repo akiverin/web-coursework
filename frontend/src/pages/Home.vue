@@ -9,12 +9,12 @@
                     Отправляйтесь на встречу к 
 магическим злоключениям
                 </h1>
-                <a v-if="this.token.length<1" href="#/login" class="hero__link">
+                <router-link :to="'/login'" v-if="this.token.length<1"  class="hero__link">
                     Начать игру
-                </a>
-                <a v-if="this.token" @click="exitUser" href="#/" class="hero__link">
+                </router-link>
+                <div @click="exitUser" class="hero__exit"><router-link :to="'/'" v-if="this.token" @click="exitUser"  class="hero__link">
                     Выйти
-                </a>
+                </router-link></div>
                 <a href="#platforms" class="hero__button">
                     Подробнее
                 </a>
@@ -550,9 +550,9 @@
                 <div class="locations__info">
                     <p class="locations__subtitle">Уникальные локации</p>
                     <h2 class="locations__title">Путешествуйте по красочному миру магов и чудовиш</h2>  
-                    <a href="#/login" class="locations__link">
+                    <router-link :to="'/login'"  class="locations__link">
                         Войти в игру
-                    </a>  
+                    </router-link>  
                 </div>
                 <img src="/images/banner.png" alt="Banner for locations" class="locations__image">
             </div>

@@ -65,7 +65,6 @@ export default {
   },
   watch: {
     token(newToken) {
-      console.log(5)
       if (newToken!=""){
         localStorage.token = newToken;
         this.getMe()

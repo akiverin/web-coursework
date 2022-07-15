@@ -2,7 +2,7 @@
     <section class="products" id="products">
         <div class="products__wrapper">
             <h1 class="products__title">Магазин "Все для злоключений"</h1>
-            <p class="products__error" v-if="!this.token">Чтобы приобрести товары, <a href="#/login" class="products__link">авторизируйтесь</a>!</p>
+            <p class="products__error" v-if="!this.token">Чтобы приобрести товары, <router-link :to="'/login'" class="products__link">авторизуйтесь</router-link>!</p>
             <p class="products__error" v-if="this.err_money">Не хватает монет для данной покупки!</p>
             <p class="products__money" v-if="this.token">Ваш кошелек: {{this.me.money}}</p>
             <ul class="products__list">
@@ -15,7 +15,8 @@
                         </p>
                         <div class="products__other">
                             <p class="products__coins">{{ product.price }}</p>
-                            <button class="products__button"  @click="Buy(product)">Купить</button>
+                            <button class="products__button" v-if="!OldBuy(product.user)"  @click="Buy(product)">Купить</button>
+                            <button class="products__button products__button_old" v-if="OldBuy(product.user)" disabled>Куплено</button>
                         </div>
                     </div>
                 </li>
@@ -51,6 +52,9 @@ export default {
             this.err_money = 0;
         });
     },
+    OldBuy(arr){
+        return arr.indexOf(this.me.id) != -1;
+    },
     Buy(product){
         if(product.price<=this.me.money){
         let api = '/api/users/'+this.me.id+'/';
@@ -61,14 +65,25 @@ export default {
           money: this.me.money - product.price,
         },
       }).then(() => {
-        console.log(this.me.coins);
+        this.AddProduct(product)
         window.location.reload();
-        console.log(this.me.coins);
       })
       .catch(() => {
         console.log('err');
-    })}else {this.err_money=1}
-  },},
+    })}else {this.err_money=1}},
+    AddProduct(product){
+        let apiAdd = '/api/products/'+product.id+'/';
+        let new_array = product.user;
+        new_array.push(this.me.id);
+        axios({
+        method: "patch",
+        url: apiAdd,
+        data: {
+          user: new_array,
+        },
+      })
+    }
+  },
   mounted (){
     this.GetProducts();
   }

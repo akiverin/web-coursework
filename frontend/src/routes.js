@@ -4,13 +4,14 @@ import Home from '@/pages/Home'
 import Levels from '@/pages/Levels'
 import Registration from '@/pages/Registration'
 import Shop from '@/pages/Shop'
+import Profile from '@/pages/Profile'
 import Rating from '@/pages/Rating'
 import NotFound from '@/pages/NotFound'
 import Enemies from '@/pages/Enemies'
 import Authorization from '@/pages/Authorization'
 
 export default new VueRouter({
-  // mode: 'history',
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -43,14 +44,26 @@ export default new VueRouter({
       component: Shop
     },
     {
+      path: '/profile',
+      name: 'profile',
+      component: Profile,
+    },
+    {
       path: '/levels',
       name: 'Levels',
       component: Levels,
     },
     {
+      path: '/:pathMatch(.*)*',
+      beforeEnter: (to, from, next) => {
+      next('/404');
+      },
+      },
+    {
       path: '*',
       name: 'notFound',
       component: NotFound
     },
+    
   ]
 })

@@ -32,6 +32,7 @@ export default {
   name: "RatingPage",
   props: {
     me: {},
+    token: String,
   },
   data() {
     return {

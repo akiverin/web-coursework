@@ -1,28 +1,30 @@
 @use "../utils/mixins" as m;
 @use "../utils/variables" as v;
 
-.products {
-    background-image: url(../../images/bg-shop.png);
+.profile {
+    background-image: url(../../images/bg-profile.png);
     background-size: cover;
+    min-height: 100vh;
 }
 
-.products__wrapper {
+.profile__wrapper {
     position: relative;
     @include m.wrapper;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 80px 0;
 }
 
-.products__title {
+.profile__title {
     font-family: 'Noto Serif';
     font-weight: 700;
     font-size: 4rem;
     line-height: normal;
     max-width: 800px;
-    margin: 40px auto 60px;
+    margin: 40px auto;
     @media screen and (max-width: 680px) {
         font-size: 2.8rem;
         max-width: 480px;
@@ -30,65 +32,60 @@
     }
 }
 
-.products__list {
+.profile__list {
+    min-width: 240px;
+    max-width: 280px;
     list-style: none;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-.products__item {
-    width: 180px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 20px;
-    margin-bottom: 20px;
+    backdrop-filter: blur(16px);
     border-radius: 16px;
-    backdrop-filter: blur(22px);
-    align-items: center;
+    background-color: rgba(40, 32, 91, 0.243);
+    padding: 18px;
+    margin-bottom: 20px;
 }
 
-.products__info {
-    padding: 8px;
-    min-height: 140px;
+.profile__item {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    border-radius: 16px;
+    text-align: left;
     align-items: center;
+    margin-bottom: 4px;
 }
 
-.products__image {
-    width: 130px;
-    height: 130px;
-    margin-top: 25px;
+
+.profile__image {
+    width: 140px;
+    height: 140px;
+    margin: 20px 0;
     object-fit: cover;
     border-radius: 16px;
+    border: 1.6px solid v.$mywhite;
 }
 
-.products__name {
+.profile__name {
+    font-family: 'Noto Serif';
+    font-size: 1.6rem;
+    line-height: normal;
+    font-weight: 400;
+
+}
+
+.profile__value {
     font-family: 'Noto Serif';
     font-weight: 600;
-    max-width: 190px;
-    margin: 0 auto;
-    font-size: 1.5rem;
-    line-height: 1.8rem;
-}
-
-.products__description {
-    margin-top: 6px;
+    margin-left: 8px;
+    margin-right: 4px;
+    color: v.$myorange;
     text-align: justify;
-    font-size: 1.05rem;
-    line-height: 1.3rem;
-    -webkit-line-clamp: 3; /* Число отображаемых строк */
-    display: -webkit-box; /* Включаем флексбоксы */
-    -webkit-box-orient: vertical; /* Вертикальная ориентация */
-    overflow: hidden; /* Обрезаем всё за пределами блока */
-    &:after{
-        content: '...';
-    }
+    font-size: 1.5rem;
+    line-height: normal;
 }
 
-.products__other {
+.profile__other {
     display: flex;
     font-weight: 500;
     justify-content: space-between;
@@ -96,7 +93,7 @@
     width: 100%;
 }
 
-.products__coins {
+.profile__coins {
     display: flex;    
     align-items: center;
     font-size: 1.4rem;
@@ -109,7 +106,7 @@
     }
 }
 
-.products__link {
+.profile__link {
     text-decoration: none;
     color: v.$liblue;
     &:hover {
@@ -117,7 +114,7 @@
     }
 }
 
-.products__error {
+.profile__error {
     font-weight: 500;
     font-size: 1.8rem;
     line-height: normal;
@@ -126,7 +123,7 @@
     color: v.$myorange
 }
 
-.products__money {
+.profile__money {
     font-weight: 600;
     font-size: 2rem;
     line-height: normal;
@@ -135,14 +132,47 @@
     color: v.$mygreen;
 }
 
-.products__button {
+.profile__actions {
+    display: flex;
+    justify-content: space-between;
+    min-width: 240px;
+    max-width: 280px;
+}
+
+.profile__button {
     border: 1.8px solid v.$liyellow;
     background: none;
     border-radius: 16px;
-    padding: 4px 8px;
+    padding: 6px 10px;
     color: v.$liyellow;
     text-transform: uppercase;
     font-size: 1.12rem;
     font-weight: 600;
     cursor: pointer;
+
+    &_delete {
+        color: v.$myorange;
+        border: 1.8px dotted v.$myorange;
+    }
+
+    &_edit {
+        color: v.$liblue;
+        border: 1.8px dotted v.$liblue;
+    }
+}
+
+.profile__form {
+    min-width: 240px;
+    max-width: 280px;
+}
+
+.form__label {
+    color: v.$mywhite;
+    font-size: 1.2rem;
+    line-height: normal;
+}
+
+.form__sublabel {
+    font-size: 1.05rem;
+    color: v.$liliblue;
 }

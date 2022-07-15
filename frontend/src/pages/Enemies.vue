@@ -3,7 +3,7 @@
     <section class="enemies">
       <div class="enemies__wrapper">
         <h1 class="enemies__title">Вражеские воины и монстры</h1>
-        <h2 class="enemies__subtitle" v-if="this.token.length<2">Чтобы видеть коллекцию поверженых вами врагов, нужно пройти <a href="#/login" class="enemies__link">авторизацию</a> на сайте.</h2>
+        <h2 class="enemies__subtitle" v-if="this.token.length<2">Чтобы видеть коллекцию поверженых вами врагов, нужно пройти <router-link :to="'/login'" class="enemies__link">авторизацию</router-link> на сайте.</h2>
         <ul class="enemies__list">
           <li v-for="enemy in enemies" :key="enemy.id" class="enemies__item">
           <div class="enemy__avatar">

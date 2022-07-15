@@ -60,6 +60,9 @@
     line-height: 6.2rem;
     max-width: 800px;
     margin: 16px auto 28px;
+    @media screen and (max-width: 680px) {
+        font-size: 3.2rem;
+    }
 }
 
 .hero__link {
